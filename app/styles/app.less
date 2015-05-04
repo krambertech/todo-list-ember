@@ -1,0 +1,266 @@
+@bg-color : #eaeaea;
+@almost-white : #fefefe;
+@border-color : #cccccc;
+@line-height : 35px;
+@font-color : #4d4d4d;
+@font-color-light : #bbbbbb;
+@destroy-color : #a88a8a;
+@color-checked : #7fd47f;
+@transparent : rgba(255, 255, 255, 0);
+@brown-color : #8d7d77;
+
+
+.font-lato {
+	font-family: 'Lato', sans-serif;
+}
+
+.user-select(@argument: none) {
+	-webkit-user-select: @argument;
+	-moz-user-select: @argument;
+	-ms-user-select: @argument;
+	user-select: @argument;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: @bg-color;
+	 
+	.font-lato
+}
+
+
+
+#todo-app {
+
+	
+	#header {
+		h1 {
+			  width: 100%;
+			  font-size: 70px;
+			  font-weight: 900;
+			  text-align: center;
+			  color: #b3b3b3;
+			  color: rgba(255, 255, 255, 0.3);
+			  text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+			  -webkit-text-rendering: optimizeLegibility;
+			  -moz-text-rendering: optimizeLegibility;
+			  -ms-text-rendering: optimizeLegibility;
+			  -o-text-rendering: optimizeLegibility;
+			  text-rendering: optimizeLegibility;
+		}
+	}
+
+	#todos-container:before {
+		content: "";
+		height: 10px;
+		max-width: 500px;
+		min-width: 300px;
+		background-color: @brown-color;
+		position: relative;
+		display: block;
+	}
+
+	#todos-container {
+		background: @almost-white;
+		margin: 0 auto;
+		border: 1px solid @border-color;
+		max-width: 500px;
+		min-width: 300px;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 2px;
+		box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2),
+		        0 25px 50px 0 rgba(0, 0, 0, 0.15);
+
+		#new-todo {
+			width: 100%;
+			height: @line-height + 5px;
+			padding: 0;
+			border: none;
+			font-weight: 300;
+			padding-left: @line-height;
+			font-size: 16px;
+			color: @font-color;
+			box-sizing: border-box;
+
+			.font-lato
+		}
+
+		#todo-list {
+			border-top: 1px solid @border-color;
+			list-style-type: none;
+		    padding: 0px;
+		    margin: 0px;
+		    margin-top: 2px;
+
+			li {
+				width: 100%;
+				min-height: @line-height;
+				word-break: break-word;
+				display: block;
+				line-height: @line-height;
+				border-bottom: 1px dotted @border-color;
+
+				.toggle {
+					appearance: none;
+					-webkit-appearance: none;
+					width: @line-height;
+					height: @line-height;
+					padding: 7px;
+					margin: 0;
+					background-color: @almost-white;
+					float: left;
+					.user-select(none);
+				}
+
+				.toggle:after {
+					content: '\2714';
+					font-size: 17px;
+					position: absolute;
+					top: 0px;
+					left: 3px;
+					color: @bg-color;
+					display: inline-block;
+					position: relative;
+				}
+
+				.toggle:active, .toggle:checked:active {
+					box-shadow: none;
+				}
+
+				.toggle:checked:after {
+					color: @color-checked;
+				}
+
+				label {
+					font-weight: 300;
+					color: @font-color;
+					float: left;
+					
+					.font-lato
+				}
+
+				.destroy {
+					display: none;
+					width: 25px;
+					height: @line-height;
+					font-size: 15px;
+					color: @border-color;
+					float: right;
+				}
+
+				
+			}
+
+			li.completed {
+				label {
+					color: #a9a9a9;
+					text-decoration: line-through;
+				}
+			}
+
+			li:hover {
+				.destroy {
+					display: block;
+				}
+
+				.destroy:hover {
+					color: @destroy-color;
+				}
+			}			
+		}
+
+		
+		
+
+		#todos-info {
+			width: 100%;
+			display: flex;
+			height: @line-height;
+			align-items: center;
+			justify-content: space-between;
+			padding-left: 10px;
+			padding-right: 10px;
+			box-sizing: border-box;
+			position: relative;
+
+			div {
+				font-size: 12px;
+				font-weight: 300;
+				color: @font-color-light;
+
+				.font-lato
+			}
+			
+			#todos-left {
+				border: 1px solid @transparent;
+				padding-top: 2px;
+				padding-bottom: 2px;
+
+				
+			}
+
+			#todos-filter {
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+
+				.filter {
+					border: 1px solid @transparent;
+					border-radius: 5px;
+					padding-top: 2px;
+					padding-bottom: 2px;
+					padding-right: 3px;
+					padding-left: 3px;
+					margin-left: 10px;
+					cursor: pointer;
+					box-sizing: border-box;
+				}
+
+				.filter.active, .filter.active:hover {
+					border: 1px solid @destroy-color;
+				}
+
+				.filter:hover {
+					border: 1px solid @border-color;
+				}
+			}
+
+			@media (max-width: 600px) {
+				#todos-clear {
+					display: none;	
+
+				}
+				#todos-left {
+					display: none;	
+				}
+				#todos-filter {
+
+				}
+
+			}
+
+			#todos-clear {
+				border: 1px solid @transparent;
+				padding-top: 2px;
+				padding-bottom: 2px;
+				cursor: pointer;	
+
+			}
+		}
+
+		
+	}
+	
+}
+
+
+
+
+.hidden {
+	display: none;
+}
