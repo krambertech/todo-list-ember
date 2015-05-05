@@ -1,0 +1,40 @@
+<div id="todos-container">
+    {{input 
+      type="text"  
+      id="new-todo" 
+      placeholder="What needs to be done?" 
+      value=newTitle
+      action="createTodo"
+    }}
+    <ul id="todo-list">
+      {{#each todo in model itemController="todo"}}
+      <li {{bind-attr class="todo.isCompleted:completed"}}> 
+        {{input
+          type="checkbox"
+          class="toggle"
+          checked=todo.isCompleted
+        }}
+        <label> {{todo.title}} </label>
+        <div class="destroy"> <i class="fa fa-times"></i> </div>
+      </li>
+
+      {{/each}}
+
+    </ul>
+
+    <div id="todos-info">
+      <div id="todos-left"> 
+        <strong>{{remaining}}</strong> items left
+      </div>
+
+      <div id="todos-filter"> 
+        <div class="filter active" id="filter-all"> All</div>
+        <div class="filter" id="filter-active">Active</div>
+        <div class="filter" id="filter-completed">Completed</div>
+      </div>
+
+      <div id="todos-clear"> Clear completed </div>
+
+
+    </div>
+</div>

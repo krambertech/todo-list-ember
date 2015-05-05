@@ -3,77 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>To do list</title>
+    <title>TodoListEmber</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/my-app.css">
-
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/todo-list-ember.css">
 
     {{content-for 'head-footer'}}
   </head>
   <body>
-    <div id="todo-app">
-      <header id="header">
-        <h1> to do </h1>
-      </header>
-
-      
-      <div id="todos-container">
-        <input type="text"  id="new-todo" placeholder="What needs to be done?" />
-        <ul id="todo-list">
-          <li> 
-            <input  type="checkbox" class="toggle">
-            <label> Buy milk </label>
-            <div class="destroy"> <i class="fa fa-times"></i> </div>
-          </li>
-
-          <li class="completed"> 
-            <input  type="checkbox" class="toggle">
-            <label> Call John </label>
-            <div class="destroy"> <i class="fa fa-times"></i> </div>
-          </li>
-
-          <li> 
-            <input  type="checkbox" class="toggle">
-            <label> I am awesome </label>
-            <div class="destroy"> <i class="fa fa-times"></i> </div>
-          </li>
-
-        </ul>
-
-        <div id="todos-info">
-          <div id="todos-left"> 
-            <strong>2</strong> items left
-          </div>
-
-          <div id="todos-filter"> 
-            <div class="filter active" id="filter-all"> All</div>
-            <div class="filter" id="filter-active">Active</div>
-            <div class="filter" id="filter-completed">Completed</div>
-          </div>
-
-          <div id="todos-clear"> Clear completed </div>
-
-
-        </div>
-
-      </div>
-     
-
-
-
-    </div>
-
     {{content-for 'body'}}
 
     <script src="assets/vendor.js"></script>
-    <script src="assets/my-app.js"></script>
+    <script src="assets/todo-list-ember.js"></script>
 
     {{content-for 'body-footer'}}
   </body>
